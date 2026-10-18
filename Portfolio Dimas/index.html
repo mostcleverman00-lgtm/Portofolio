@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP for animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="about.html">Tentang Saya</a></li>
+            <li><a href="education.html">Riwayat Pendidikan</a></li>
+            <li><a href="skill.html">Keahlian</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-section">
+        <h1 class="title-gradient">Profil Saya</h1>
+        
+        <div class="profile-card">
+            <img src="img/dimas_pkm.jpg" alt="Foto Dimas Aditiya" class="hero-img">
+            
+            <div class="profile-text">
+                <p class="hero-text">
+                    Nama Saya <strong>Dimas Aditiya</strong>, Saya lahir di Tangerang, tepatnya di daerah Sukamulya pada Tanggal <em class="highlight-blue">23 Mei 2003</em>. Saya dari 3 bersaudara, saya anak terakhir dari 3 bersaudara.
+                </p>
+                <p class="hero-text">
+                    Pada saat ini saya sedang menempuh pendidikan <span class="highlight-emerald">sistem informasi</span> di Universitas Pamulang, saya mengambil jurusan sistem informasi karena saya ingin menjadi seorang programmer.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="education-section">
+        <h3>Riwayat Pendidikan</h3>
+        <ol>
+            <li class="edu-item">
+                <span class="edu-number">1</span> SD Negeri Sukamulya
+            </li>
+            <li class="edu-item">
+                <span class="edu-number">2</span> SMP Negeri Sukamulya
+            </li>
+            <li class="edu-item">
+                <span class="edu-number">3</span> SMAN 7 Kab. Tangerang
+            </li>
+            <li class="edu-item">
+                <span class="edu-number">4</span> Universitas Pamulang Serang (S1 Sistem Informasi)
+            </li>
+        </ol>
+    </div>
+    
+    <div class="video-section">
+        <h2>Video Kegiatan</h2>
+        <div class="video-container">
+            <video width="640" controls poster="img/thumbnail.jpg">
+                <source src="video/video_pkm.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tl = gsap.timeline();
+
+        gsap.set(".navbar", { y: -30, opacity: 0 });
+        gsap.set(".title-gradient", { scale: 0.9, opacity: 0 });
+        gsap.set(".hero-img", { x: -40, opacity: 0, rotation: -5 });
+        gsap.set(".hero-text", { x: 40, opacity: 0 });
+        gsap.set(".education-section", { y: 40, opacity: 0 });
+        gsap.set(".edu-item", { x: -20, opacity: 0 });
+        gsap.set(".video-section", { opacity: 0, scale: 0.95 });
+
+        tl.to(".navbar", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" })
+          .to(".title-gradient", { scale: 1, opacity: 1, duration: 0.6, ease: "back.out(1.5)" }, "-=0.4")
+          .to(".hero-img", { x: 0, opacity: 1, rotation: 0, duration: 0.8, ease: "power3.out" }, "-=0.2")
+          .to(".hero-text", { x: 0, opacity: 1, duration: 0.6, stagger: 0.15, ease: "power2.out" }, "-=0.6")
+          .to(".education-section", { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.2")
+          .to(".edu-item", { x: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: "power2.out" }, "-=0.2")
+          .to(".video-section", { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, "-=0.2");
+    });
+  </script>
+</body>
+</html>

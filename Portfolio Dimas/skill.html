@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keahlian - Profil Dimas Aditiya</title>
+     <!-- Devicon for Programming Graphics -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="style.css"> 
+    <!-- GSAP for animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Profil Saya</a></li>
+            <li><a href="about.html">Tentang Saya</a></li>
+            <li><a href="education.html">Riwayat Pendidikan</a></li>
+            <li><a href="skill.html" style="color: var(--accent-blue);">Keahlian</a></li>
+        </ul>
+    </nav>
+
+    <!-- Skills Content -->
+    <div class="skills-section">
+        <h2 class="section-title title-gradient">Keahlian & Teknologi</h2>
+        
+        <div class="skills-grid">
+            
+            <!-- Skill Card 1: Mobile Development -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box blue-icon">📱</div>
+                    <h3>Mobile App Development</h3>
+                </div>
+                <!-- Visual Graphics Grid -->
+                <div class="graphics-grid">
+                    <div class="tech-badge">
+                        <i class="devicon-flutter-plain colored"></i>
+                        <span>Flutter</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-dart-plain colored"></i>
+                        <span>Dart</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill Card 2: Web & Desktop Programming -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box emerald-icon">💻</div>
+                    <h3>Web & Desktop</h3>
+                </div>
+                <div class="graphics-grid">
+                    <div class="tech-badge">
+                        <i class="devicon-html5-plain colored"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-css3-plain colored"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-javascript-plain colored"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-php-plain colored"></i>
+                        <span>PHP</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-java-plain colored"></i>
+                        <span>Java</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill Card 3: Database & Automation -->
+            <div class="skill-card">
+                <div class="card-header">
+                    <div class="icon-box purple-icon">⚙️</div>
+                    <h3>Database & Automation</h3>
+                </div>
+                <div class="graphics-grid">
+                    <div class="tech-badge">
+                        <i class="devicon-mysql-plain colored"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-nodejs-plain colored"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-badge">
+                        <i class="devicon-python-plain colored"></i>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+  </div>
+
+  <!-- Page Specific GSAP Animation -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tl = gsap.timeline();
+
+        // Initial setup
+        gsap.set(".navbar", { y: -30, opacity: 0 });
+        gsap.set(".section-title", { y: -20, opacity: 0 });
+        gsap.set(".skill-card", { y: 50, opacity: 0 });
+        gsap.set(".tech-badge", { scale: 0, opacity: 0 }); // Hide graphics initially
+
+        // Animation sequence
+        tl.to(".navbar", { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" })
+          .to(".section-title", { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4")
+          .to(".skill-card", { 
+              y: 0, 
+              opacity: 1, 
+              duration: 0.6, 
+              stagger: 0.2, 
+              ease: "power2.out" 
+          }, "-=0.2")
+          // Add a bounce effect to the individual graphics popping in
+          .to(".tech-badge", {
+              scale: 1,
+              opacity: 1,
+              duration: 0.5,
+              stagger: 0.05,
+              ease: "back.out(2)" // Bouncy effect
+          }, "-=0.2");
+    });
+  </script>
+</body>
+</html>
